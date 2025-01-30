@@ -1,0 +1,373 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #121212;
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+h1 {
+    text-align: center;
+    color: #f4b3b3;
+    margin-top: 4%;
+    font-size: 40px;
+}
+
+#mentions-politique {
+    display: flex;
+    justify-content: space-around; 
+    align-items: center;
+}
+
+header, footer {
+    background-color: #f4b3b3;
+    padding: 1rem;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2rem;
+    color: #ffffff;
+}
+
+.liste-musiques {
+    padding: 2rem;
+}
+
+
+section {
+    margin-bottom: 2rem;
+    background-color: #282828;
+    border-radius: 8px;
+    padding: 1rem;
+    padding-bottom: 2rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center; 
+    position: relative;
+    max-width: 1200px;  
+    width: 100%;        
+    margin: 0 auto;    
+    box-sizing: border-box;
+}
+
+section + section {
+    margin-top: 2rem; 
+}
+
+section img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+section:last-of-type {
+    margin-bottom: 2rem; 
+}
+
+
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    flex-grow: 1;
+}
+
+
+h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #f4b3b3;
+    line-height: 1.4;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+}
+
+.buttons audio {
+    display: none;
+}
+
+.play-btn, .info-btn {
+    padding: 0.3rem 0.6rem;
+    width: 100px;
+    border: none;
+    border-radius: 4px;
+    background-color: #f4b3b3;
+    color: #121212;
+    cursor: pointer;
+    font-size: 0.875rem;
+    transition: background-color 0.3s ease, transform 0.2s ease, color 0.3s ease;
+}
+
+.play-btn:hover, .info-btn:hover {
+    background-color: #e8a6a6;
+    color: #121212;
+    transform: scale(1.05);
+}
+
+.current-time {
+    font-size: 0.875rem;
+    color: #f4b3b3;
+}
+
+.icons-container {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.icons-container a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+}
+
+.spotify-link, .youtube-link, .applemusic-link {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.spotify-link:hover, .youtube-link:hover, .applemusic-link:hover {
+    transform: scale(1.1);
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+}
+
+.popup .popup-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.popup .close-btn {
+    align-self: flex-end;
+    background-color: #f4b3b3;
+    color: white;
+    border: none;
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.popup .popup-content h3 {
+    color: #f4b3b3;
+}
+
+.popup .popup-content p {
+    color: white;
+    font-size: 1.1rem;
+}
+
+.info-btn {
+    padding: 0.3rem;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%; 
+    background-color: #f4b3b3;
+    color: #121212;
+    cursor: pointer;
+    font-size: 1.5rem;
+    transition: background-color 0.3s ease, transform 0.2s ease, color 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 20px;
+    right: 12px;
+}
+
+.info-btn:hover {
+    background-color: #e8a6a6;
+    color: #121212;
+    transform: scale(1.05);
+}
+
+
+.open-form-btn {
+    position: fixed;
+    bottom: 50px;
+    right: 20px;
+    background-color: #f5e8ed;
+    color: #121212;
+    border: none;
+    padding: 0.5rem;
+    font-size: 2rem;
+    border-radius: 50%;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    transition: background-color 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    
+}
+
+.open-form-btn img {
+    width: 30px; 
+    height: 30px;  
+}
+
+.open-form-btn:hover {
+    background-color: #e8a6a6;
+}
+
+.form-popup {
+    display: none;
+    border-color: #121212;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0);
+    color: white;
+    border-radius: 8px;
+    padding: 1rem;
+    width: 700px;
+    max-height: 80%;  
+    overflow-y: auto; 
+    z-index: 1000;
+}
+
+.form-popup-content {
+    display: flex;
+    flex-direction: column;
+}
+
+form input, form textarea {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    width: calc(100% - 1rem); 
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background-color: #282828;
+    color: white;
+}
+
+
+form textarea {
+    resize: vertical; 
+}
+
+.close-form-btn {
+    align-self: flex-end;
+    background-color: #f4b3b3;
+    color: white;
+    border: none;
+    padding: 0.5rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.close-form-btn:hover {
+    background-color: #e8a6a6;
+}
+
+form input[type="button"] {
+    background-color: #f4b3b3;
+    color: #121212;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+form input[type="button"]:hover {
+    background-color: #e8a6a6;
+}
+
+footer {
+    background-color: #f4b3b3;
+    padding: 2rem;
+    position: relative;
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;
+    gap: 1rem; 
+}
+
+.footer-buttons {
+    display: flex;
+    flex-direction: row; 
+    justify-content: center;
+    gap: 15px;
+}
+
+#mentions-politique {
+    display: flex;
+    gap: 10px;
+}
+
+
+.popup-btn {
+    padding: 10px;
+    background-color: #ffffff;
+    color: #121212;
+    border: none;
+    border-radius: 7px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-align: center;
+    overflow: hidden; 
+}
+
+.popup-btn:hover {
+    background-color: #e8a6a6;
+    transform: scale(1.05);
+}
+
+footer p {
+    position: absolute;
+    bottom: 10px; 
+    right: 10px;
+    font-size: 12px;
+    color: #121212;
+    text-align: end;
+    font-size: 12px;
+    text-align: end;
+    font-size: 12px;
+}
+
+.pop-up-container {
+    max-width: 70%;  
+    max-height: 70vh;  
+    overflow: hidden;  
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#credits-content {
+    max-height: 400px; 
+    overflow-y: auto; 
+    padding-right: 10px; 
+}
+
